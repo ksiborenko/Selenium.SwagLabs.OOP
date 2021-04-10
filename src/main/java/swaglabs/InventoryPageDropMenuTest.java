@@ -2,36 +2,27 @@ package swaglabs;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertEquals;
 
-public class InventoryPageDropMenu {
+public class InventoryPageDropMenuTest {
 
     private WebDriver driver;
+    private LogIn logIn;
 
-    public InventoryPageDropMenu(WebDriver driver) {
+    public InventoryPageDropMenuTest(WebDriver driver) {
         this.driver = driver;
+        this.logIn = new LogIn(this.driver);
     }
 
     public void testAllOptions() {
-        this.logIn();
+        this.logIn.logIn("standard_user", "secret_sauce");
         this.testOption1();
         this.testOption2();
         this.testOption3();
         this.testOption4();
     }
 
-    public void logIn() {
-        this.driver.get("https://www.saucedemo.com/");
-        WebElement loginTab = this.driver.findElement(By.id("user-name"));
-        loginTab.click();
-        loginTab.sendKeys("standard_user");
-        WebElement passwordTab = this.driver.findElement(By.id("password"));
-        passwordTab.click();
-        passwordTab.sendKeys("secret_sauce");
-        this.driver.findElement(By.id("login-button")).click();
-    }
 
     public void testOption1() {
         this.driver.findElement(By.className("product_sort_container")).click();

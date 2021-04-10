@@ -5,35 +5,34 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
-import swaglabs.InventoryPageDropMenu;
-import swaglabs.LoginPage;
+import swaglabs.InventoryPageDropMenuTest;
+import swaglabs.LoginPageTest;
 
 public class Main {
 
     private WebDriver driver;
     private Actions action;
-    private LoginPage loginPage;
-    private InventoryPageDropMenu inventoryPageDropMenu;
+    private LoginPageTest loginPageTest;
+    private InventoryPageDropMenuTest inventoryPageDropMenuTest;
 
     @Before
     public void setup() {
         WebDriverManager.edgedriver().setup();
         this.driver = new EdgeDriver();
         this.action = new Actions(this.driver);
-        this.loginPage = new LoginPage(this.driver);
-        this.inventoryPageDropMenu = new InventoryPageDropMenu(this.driver);
+        this.loginPageTest = new LoginPageTest(this.driver);
+        this.inventoryPageDropMenuTest = new InventoryPageDropMenuTest(this.driver);
     }
 
     @Test
     public void loginPage() {
-        this.loginPage.test(false, "", "");
-        this.loginPage.test(true, "standard_user", "secret_sauce");
+        this.loginPageTest.test(false, "", "");
+        this.loginPageTest.test(true, "standard_user", "secret_sauce");
     }
 
     @Test
     public void inventoryPageDropDownMenu() {
-        this.inventoryPageDropMenu.testAllOptions();
-
+        this.inventoryPageDropMenuTest.testAllOptions();
     }
 
     @After
