@@ -6,18 +6,18 @@ import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertTrue;
 
-public class LoginPageTest {
+public class LoginPage {
 
     private final WebDriver driver;
-    private final LogIn logIn;
+    private final LogInObject logInObject;
 
-    public LoginPageTest(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.logIn = new LogIn(this.driver);
+        this.logInObject = new LogInObject(this.driver);
     }
 
-    public void test(boolean typeOfLoginCheck, String login, String password) {
-        this.logIn.logIn(login, password);
+    public void loginCheck(boolean typeOfLoginCheck, String login, String password) {
+        this.logInObject.logIn(login, password);
         if (typeOfLoginCheck) {
             this.correctLoginDataCheck();
         }

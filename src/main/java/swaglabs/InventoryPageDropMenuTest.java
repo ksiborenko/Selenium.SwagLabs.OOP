@@ -8,15 +8,15 @@ import static org.junit.Assert.assertEquals;
 public class InventoryPageDropMenuTest {
 
     private final WebDriver driver;
-    private final LogIn logIn;
+    private final LogInObject logInObject;
 
     public InventoryPageDropMenuTest(WebDriver driver) {
         this.driver = driver;
-        this.logIn = new LogIn(this.driver);
+        this.logInObject = new LogInObject(this.driver);
     }
 
     public void testAllOptions() {
-        this.logIn.logIn("standard_user", "secret_sauce");
+        this.logInObject.logIn();
         this.testOption1();
         this.testOption2();
         this.testOption3();

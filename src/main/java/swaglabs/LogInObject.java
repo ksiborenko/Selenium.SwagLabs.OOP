@@ -4,11 +4,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LogIn {
+public class LogInObject {
     private final WebDriver driver;
 
-    public LogIn(WebDriver driver) {
+    public LogInObject(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public void logIn() {
+        this.driver.get("https://www.saucedemo.com/");
+        WebElement loginTab = this.driver.findElement(By.id("user-name"));
+        loginTab.click();
+        loginTab.sendKeys("standard_user");
+        WebElement passwordTab = this.driver.findElement(By.id("password"));
+        passwordTab.click();
+        passwordTab.sendKeys("secret_sauce");
+        this.driver.findElement(By.id("login-button")).click();
     }
 
     public void logIn(String login, String password) {
