@@ -6,15 +6,15 @@ import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertTrue;
 
-public class SwagLabsLoginPageTest {
+public class LoginPage {
 
     private WebDriver driver;
 
-    public SwagLabsLoginPageTest(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void fullTest(boolean typeOfLoginCheck, String login, String password) {
+    public void test(boolean typeOfLoginCheck, String login, String password) {
         this.driver.get("https://www.saucedemo.com/");
         WebElement loginTab = this.driver.findElement(By.id("user-name"));
         loginTab.click();
