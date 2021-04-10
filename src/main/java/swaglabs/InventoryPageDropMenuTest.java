@@ -7,8 +7,8 @@ import static org.junit.Assert.assertEquals;
 
 public class InventoryPageDropMenuTest {
 
-    private WebDriver driver;
-    private LogIn logIn;
+    private final WebDriver driver;
+    private final LogIn logIn;
 
     public InventoryPageDropMenuTest(WebDriver driver) {
         this.driver = driver;
@@ -22,7 +22,6 @@ public class InventoryPageDropMenuTest {
         this.testOption3();
         this.testOption4();
     }
-
 
     public void testOption1() {
         this.driver.findElement(By.className("product_sort_container")).click();
@@ -51,6 +50,4 @@ public class InventoryPageDropMenuTest {
         String activeOption = this.driver.findElement(By.className("active_option")).getText();
         assertEquals("PRICE (HIGH TO LOW)", activeOption);
     }
-
-
 }

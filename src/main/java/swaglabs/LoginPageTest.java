@@ -8,8 +8,8 @@ import static org.junit.Assert.assertTrue;
 
 public class LoginPageTest {
 
-    private WebDriver driver;
-    private LogIn logIn;
+    private final WebDriver driver;
+    private final LogIn logIn;
 
     public LoginPageTest(WebDriver driver) {
         this.driver = driver;
