@@ -4,7 +4,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import tests.*;
+import tests.cart.CartPage;
+import tests.checkout.CheckOutPage;
+import tests.inventory.InventoryPageCart;
+import tests.inventory.InventoryPageContainer;
+import tests.inventory.InventoryPageDropMenuTest;
+import tests.login.LoginPage;
 import utils.CartController;
 import utils.LogInController;
 
