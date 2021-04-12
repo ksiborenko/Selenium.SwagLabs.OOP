@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import swaglabs.*;
-import swaglabs.utils.CartController;
-import swaglabs.utils.LogInController;
+import tests.*;
+import tests.utils.CartController;
+import tests.utils.LogInController;
 
 public class Main {
 
@@ -18,6 +18,7 @@ public class Main {
     private LogInController logInController;
     private CartPage cartPage;
     private CartController cartController;
+    private CheckOutPage checkOutPage;
 
     @Before
     public void setup() {
@@ -30,6 +31,7 @@ public class Main {
         this.logInController = new LogInController(driver);
         this.cartPage = new CartPage(driver);
         this.cartController = new CartController(driver);
+        this.checkOutPage = new CheckOutPage(this.driver);
     }
 
     @Test
@@ -59,8 +61,19 @@ public class Main {
         this.cartPage.checkOut();
     }
 
+    @Test
+    public void checkOutPage() {
+        this.logInController.logIn();
+        this.cartController.inventoryToCart();
+        this.cartController.cartToCheckout();
+        this.checkOutPage.cancelButton();
+        this.cartController.cartToCheckout();
+        this.checkOutPage.enterData();
+        this.checkOutPage.continueButton();
+    }
+
     @After
     public void end() {
-        this.driver.quit();
+        //   this.driver.quit();
     }
 }

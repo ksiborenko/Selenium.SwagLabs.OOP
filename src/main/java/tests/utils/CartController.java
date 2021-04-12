@@ -1,4 +1,4 @@
-package swaglabs.utils;
+package tests.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,5 +16,8 @@ public class CartController {
 
     public void cartToInventory() {
         this.driver.findElement(By.id("continue-shopping_cart_container")).click();
+    }
+    public void cartToCheckout () {
+        this.driver.findElement(By.id("checkout")).click();
     }
 }

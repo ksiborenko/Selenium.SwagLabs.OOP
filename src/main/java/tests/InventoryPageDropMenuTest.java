@@ -1,8 +1,8 @@
-package swaglabs;
+package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import swaglabs.utils.LogInController;
+import tests.utils.LogInController;
 
 import static org.junit.Assert.assertEquals;
 
