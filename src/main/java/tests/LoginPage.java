@@ -3,8 +3,9 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tests.utils.LogInController;
+import utils.LogInController;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class LoginPage {
@@ -28,12 +29,14 @@ public class LoginPage {
     }
 
     private void correctLoginDataCheck() {
-        WebElement check = this.driver.findElement(By.id("shopping_cart_container"));
-        assertTrue(check.isDisplayed());
+        String url = this.driver.getCurrentUrl();
+        assertEquals("https://www.saucedemo.com/inventory.html", url);
     }
 
     private void incorrectLoginDataCheck() {
         WebElement check = this.driver.findElement(By.className("error"));
         assertTrue(check.isDisplayed());
+        String url = this.driver.getCurrentUrl();
+        assertEquals("https://www.saucedemo.com/", url);
     }
 }

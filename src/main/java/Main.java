@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import tests.*;
-import tests.utils.CartController;
-import tests.utils.LogInController;
+import utils.CartController;
+import utils.LogInController;
 
 public class Main {
 
@@ -68,6 +68,7 @@ public class Main {
         this.cartController.cartToCheckout();
         this.checkOutPage.cancelButton();
         this.cartController.cartToCheckout();
+        this.checkOutPage.noDataCheck();
         this.checkOutPage.enterData();
         this.checkOutPage.continueButton();
     }

@@ -2,7 +2,7 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import tests.utils.LogInController;
+import utils.LogInController;
 
 import static org.junit.Assert.assertEquals;
 

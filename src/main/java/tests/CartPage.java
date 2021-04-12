@@ -44,7 +44,7 @@ public class CartPage {
 
     public void checkOut() {
         this.driver.findElement(By.id("checkout")).click();
-        WebElement element = this.driver.findElement(By.id("first-name"));
-        assertTrue(element.isEnabled());
+        String url = this.driver.getCurrentUrl();
+        assertEquals("https://www.saucedemo.com/checkout-step-one.html", url);
     }
 }
