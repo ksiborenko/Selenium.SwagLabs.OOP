@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 public class InventoryPageCart {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public InventoryPageCart(WebDriver driver) {
         this.driver = driver;

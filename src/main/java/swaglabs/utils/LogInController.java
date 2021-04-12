@@ -1,13 +1,13 @@
-package swaglabs;
+package swaglabs.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LogInObject {
+public class LogInController {
     private final WebDriver driver;
 
-    public LogInObject(WebDriver driver) {
+    public LogInController(WebDriver driver) {
         this.driver = driver;
     }
 

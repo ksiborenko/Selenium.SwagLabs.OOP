@@ -2,21 +2,22 @@ package swaglabs;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import swaglabs.utils.LogInController;
 
 import static org.junit.Assert.assertEquals;
 
 public class InventoryPageDropMenuTest {
 
     private final WebDriver driver;
-    private final LogInObject logInObject;
+    private final LogInController logInController;
 
     public InventoryPageDropMenuTest(WebDriver driver) {
         this.driver = driver;
-        this.logInObject = new LogInObject(this.driver);
+        this.logInController = new LogInController(this.driver);
     }
 
     public void testAllOptions() {
-        this.logInObject.logIn();
+        this.logInController.logIn();
         this.testOption1();
         this.testOption2();
         this.testOption3();
