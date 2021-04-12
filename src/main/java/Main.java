@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import tests.cart.CartPage;
+import tests.checkout.CheckOutCompletePage;
+import tests.checkout.CheckOutOverviewPage;
 import tests.checkout.CheckOutPage;
 import tests.inventory.InventoryPageCart;
 import tests.inventory.InventoryPageContainer;
@@ -24,6 +26,8 @@ public class Main {
     private CartPage cartPage;
     private CartController cartController;
     private CheckOutPage checkOutPage;
+    private CheckOutOverviewPage checkOutOverviewPage;
+    private CheckOutCompletePage checkOutCompletePage;
 
     @Before
     public void setup() {
@@ -37,6 +41,8 @@ public class Main {
         this.cartPage = new CartPage(driver);
         this.cartController = new CartController(driver);
         this.checkOutPage = new CheckOutPage(this.driver);
+        this.checkOutOverviewPage = new CheckOutOverviewPage(this.driver);
+        this.checkOutCompletePage = new CheckOutCompletePage(this.driver);
     }
 
     @Test
@@ -76,6 +82,17 @@ public class Main {
         this.checkOutPage.noDataCheck();
         this.checkOutPage.enterData();
         this.checkOutPage.continueButton();
+    }
+
+    @Test
+    public void setCheckOutOverviewPage() {
+        this.logInController.logIn();
+        this.cartController.inventoryToCart();
+        this.cartController.cartToCheckout();
+        this.checkOutPage.enterData();
+        this.checkOutPage.continueButton();
+        this.checkOutOverviewPage.finnishButton();
+        this.checkOutCompletePage.backHomeButton();
     }
 
     @After
