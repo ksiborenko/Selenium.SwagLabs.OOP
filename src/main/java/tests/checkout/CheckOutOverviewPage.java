@@ -24,4 +24,12 @@ public class CheckOutOverviewPage {
         String url = this.driver.getCurrentUrl();
         assertEquals("https://www.saucedemo.com/checkout-complete.html", url);
     }
+
+    public void container() {
+        String itemCheck = this.driver.findElement(By.className("inventory_item_name")).getText();
+        assertEquals("Sauce Labs Backpack", itemCheck);
+    }
+    public void addItem() {
+        this.driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
+    }
 }

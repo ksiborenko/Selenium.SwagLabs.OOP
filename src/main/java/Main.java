@@ -87,16 +87,18 @@ public class Main {
     @Test
     public void setCheckOutOverviewPage() {
         this.logInController.logIn();
+        this.checkOutOverviewPage.addItem();
         this.cartController.inventoryToCart();
         this.cartController.cartToCheckout();
         this.checkOutPage.enterData();
         this.checkOutPage.continueButton();
+        this.checkOutOverviewPage.container();
         this.checkOutOverviewPage.finnishButton();
         this.checkOutCompletePage.backHomeButton();
     }
 
     @After
     public void end() {
-        //   this.driver.quit();
+        this.driver.quit();
     }
 }
